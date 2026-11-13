@@ -1,0 +1,60 @@
+{
+  "name": "team-monitor-teammate",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Team Monitor teammate capture, local recording, and upload.",
+  "main": "main.js",
+  "author": "Team Monitor",
+  "scripts": {
+    "start": "electron .",
+    "predist:win": "node ../scripts/prepare-app.js teammate-app",
+    "dist:win": "electron-builder --win"
+  },
+  "dependencies": {
+    "ffmpeg-static": "^5.2.0",
+    "socket.io-client": "^4.8.1"
+  },
+  "devDependencies": {
+    "electron": "^33.4.11",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.gange.teammonitor.teammate",
+    "productName": "Team Monitor Teammate",
+    "executableName": "TeamMonitorTeammate",
+    "npmRebuild": false,
+    "forceCodeSigning": false,
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "files": [
+      "**/*",
+      "!dist/**"
+    ],
+    "asarUnpack": [
+      "**/node_modules/ffmpeg-static/**"
+    ],
+    "win": {
+      "icon": "build/icon.png",
+      "signAndEditExecutable": false,
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        }
+      ]
+    },
+    "nsis": {
+      "include": "build/installer.nsh",
+      "oneClick": false,
+      "perMachine": true,
+      "allowToChangeInstallationDirectory": true,
+      "allowElevation": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Team Monitor Teammate",
+      "artifactName": "Teammate-Setup-${version}.${ext}"
+    }
+  }
+}

@@ -1,0 +1,114 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+[hidden] { display: none !important; }
+
+:root {
+  --bg: #07090f;
+  --s2: #131a2c;
+  --s3: #1c2538;
+  --border: rgba(148, 163, 184, .12);
+  --accent: #6aa3ff;
+  --accent2: #a78bfa;
+  --green: #22c55e;
+  --red: #ef4444;
+  --text: #eef2fb;
+  --muted: #8696b8;
+  color-scheme: dark;
+}
+
+html { height: 100%; }
+body {
+  min-height: 100%;
+  font-family: "Segoe UI", Inter, system-ui, sans-serif;
+  color: var(--text);
+  line-height: 1.5;
+  padding: 28px 24px;
+  background:
+    radial-gradient(900px 500px at -10% -20%, rgba(79, 142, 247, .16), transparent 60%),
+    radial-gradient(700px 400px at 120% 0%, rgba(124, 109, 247, .12), transparent 55%),
+    var(--bg);
+}
+
+.brand {
+  display: flex; align-items: center; gap: 12px; margin-bottom: 22px;
+}
+.brand-logo {
+  width: 40px; height: 40px; border-radius: 12px;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  display: grid; place-items: center;
+  box-shadow: 0 8px 24px rgba(106,163,255,.35);
+}
+.brand-name { font-size: 18px; font-weight: 800; letter-spacing: -.3px; }
+.brand-sub { font-size: 12px; color: var(--muted); }
+
+.card {
+  background: linear-gradient(180deg, rgba(255,255,255,.035), transparent 60%), var(--s2);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 18px;
+}
+
+label { display: flex; flex-direction: column; gap: 6px; margin-bottom: 12px; font-size: 12px; font-weight: 600; color: var(--muted); }
+input {
+  font: inherit; color: inherit;
+  background: #0b101b; border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px;
+}
+
+button {
+  font: inherit; color: inherit; cursor: pointer;
+  background: var(--accent); color: #0a0e1a; border: 0;
+  border-radius: 8px; padding: 10px 14px; font-weight: 700;
+}
+button:disabled { opacity: .65; cursor: progress; }
+button.quiet {
+  background: transparent; color: var(--muted); border: 1px solid var(--border); font-weight: 600; margin-top: 14px;
+}
+button.quiet:hover { border-color: var(--accent); color: var(--text); }
+
+.banner {
+  display: flex; gap: 10px; align-items: center;
+  padding: 12px 14px; border-radius: 12px;
+  background: rgba(239, 68, 68, .12); border: 1px solid rgba(239, 68, 68, .28);
+  margin-bottom: 16px;
+}
+.banner.ok { background: rgba(34,197,94,.1); border-color: rgba(34,197,94,.28); }
+.dot { width: 10px; height: 10px; border-radius: 50%; background: #8b939f; }
+.dot.on { background: var(--red); box-shadow: 0 0 10px var(--red); }
+.dot.live { background: var(--green); box-shadow: 0 0 10px var(--green); }
+
+dl { display: grid; grid-template-columns: 120px 1fr; gap: 8px 12px; align-items: center; }
+dt { color: var(--muted); font-size: 12px; }
+dd { margin: 0; font-size: 13px; font-weight: 600; }
+.name-row { display: flex; align-items: stretch; min-width: 0; }
+.name-row input {
+  flex: 1; min-width: 0; height: 34px; padding: 0 12px;
+  border-radius: 8px 0 0 8px; border-right: 0;
+}
+.name-row input:focus { outline: none; border-color: var(--accent); }
+.name-row input:focus + button { border-color: var(--accent); }
+.name-row button {
+  height: 34px; margin: 0; padding: 0 14px; flex-shrink: 0;
+  background: var(--s3); color: var(--text);
+  border: 1px solid var(--border); border-radius: 0 8px 8px 0;
+  font-size: 12px; font-weight: 600;
+}
+.name-row button:hover {
+  background: var(--accent); color: #0a0e1a; border-color: var(--accent);
+}
+.name-row button.saved {
+  background: rgba(34,197,94,.16); color: var(--green); border-color: rgba(34,197,94,.35);
+}
+.hold-row {
+  display: flex; flex-direction: row; align-items: center; gap: 10px;
+  margin: 16px 0 0; padding: 12px 14px;
+  border: 1px solid var(--border); border-radius: 10px;
+  background: #0b101b;
+  font-size: 13px; font-weight: 600; color: var(--text);
+  cursor: pointer;
+}
+.hold-row input { width: 16px; height: 16px; accent-color: var(--accent); padding: 0; margin: 0; }
+.hold-row:has(input:checked) { border-color: var(--accent); color: var(--accent); }
+.banner.hold { background: rgba(106,163,255,.12); border-color: rgba(106,163,255,.35); }
+.error { color: #f0b4b4; min-height: 1.2em; margin-top: 10px; font-size: 13px; }
+.enroll-status { min-height: 1.2em; margin-top: 10px; font-size: 13px; font-weight: 600; }
+.enroll-status.busy { color: var(--accent); }
+.enroll-status.error { color: #f0b4b4; margin-top: 10px; }

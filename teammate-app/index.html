@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; script-src 'self'">
+  <title>Team Monitor</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="brand">
+    <div class="brand-logo" aria-hidden="true">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+        <rect x="3" y="5" width="18" height="12" rx="2" stroke="white" stroke-width="1.8"/>
+        <path d="M8 21h8" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div>
+      <div class="brand-name">Team Monitor</div>
+      <div class="brand-sub">Teammate</div>
+    </div>
+  </div>
+  <form id="enroll" class="card">
+    <label>Name
+      <input id="enroll-name" placeholder="Your name" maxlength="64" autocomplete="off">
+    </label>
+    <label>Admin address
+      <input id="server" placeholder="http://127.0.0.1:3921" autocomplete="off">
+    </label>
+    <button type="submit">Connect</button>
+    <p id="enroll-status" class="enroll-status" role="status"></p>
+  </form>
+  <section id="status" class="card" hidden>
+    <div class="banner" id="status-banner">
+      <span id="dot" class="dot"></span>
+      <strong id="capture">Not recording</strong>
+    </div>
+    <dl>
+      <dt>Name</dt>
+      <dd class="name-row">
+        <input id="display-name" maxlength="64" autocomplete="off">
+        <button id="save-name" type="button">Save</button>
+      </dd>
+      <dt>Admin</dt><dd id="server-url"></dd>
+      <dt>Live view</dt><dd id="live"></dd>
+      <dt>Upload</dt><dd id="upload"></dd>
+      <dt>Displays</dt><dd id="displays"></dd>
+      <dt>Free disk</dt><dd id="disk"></dd>
+    </dl>
+    <label class="hold-row">
+      <input id="hold-network" type="checkbox">
+      <span>Hold network</span>
+    </label>
+    <p id="status-error" class="error"></p>
+  </section>
+  <script src="renderer.js"></script>
+</body>
+</html>

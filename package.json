@@ -1,0 +1,19 @@
+{
+  "name": "team-monitor",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Admin and teammate apps for live screens, local recording, and activity review.",
+  "scripts": {
+    "test": "node --test --test-concurrency=1 test/*.test.js",
+    "admin": "npm start --prefix admin-app",
+    "teammate": "npm start --prefix teammate-app",
+    "dist:admin": "npm run dist:win --prefix admin-app",
+    "dist:teammate": "npm run dist:win --prefix teammate-app"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "ffmpeg-static": "^5.2.0",
+    "socket.io": "^4.8.1",
+    "socket.io-client": "^4.8.1"
+  }
+}

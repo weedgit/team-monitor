@@ -1,0 +1,5 @@
+node_modules/
+dist/
+admin-app/lib/
+teammate-app/lib/
+*.log
